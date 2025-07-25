@@ -29,26 +29,45 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Profile Videos Carousel
-  const slides = document.querySelectorAll('.profile-video');
-  const leftBtn = document.querySelectorAll('.profile-arrow')[0];
-  const rightBtn = document.querySelectorAll('.profile-arrow')[1];
-  let current = 0;
+  // Custom Video Player
+  const video = document.getElementById('students-video');
+  const playPauseBtn = document.getElementById('playPauseBtn');
+  const videoPlayer = document.querySelector('.custom-video-player');
+  const playIcon = document.querySelector('.play-icon');
+  const pauseIcon = document.querySelector('.pause-icon');
+  const videoControls = document.querySelector('.video-controls');
 
-  function showSlide(idx) {
-    slides.forEach((el, i) => {
-      el.style.display = (i === idx) ? 'block' : 'none';
+  if (video && playPauseBtn) {
+    // Play/Pause functionality
+    function togglePlayPause() {
+      if (video.paused) {
+        video.play();
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
+        videoPlayer.classList.add('playing');
+      } else {
+        video.pause();
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+        videoPlayer.classList.remove('playing');
+      }
+    }
+
+    // Click events
+    playPauseBtn.addEventListener('click', togglePlayPause);
+    video.addEventListener('click', togglePlayPause);
+    videoControls.addEventListener('click', togglePlayPause);
+
+    // Video ended event
+    video.addEventListener('ended', function() {
+      playIcon.style.display = 'block';
+      pauseIcon.style.display = 'none';
+      videoPlayer.classList.remove('playing');
     });
-  }
-  if (slides.length > 0) {
-    showSlide(current);
-    leftBtn.addEventListener('click', () => {
-      current = (current === 0) ? slides.length - 1 : current - 1;
-      showSlide(current);
-    });
-    rightBtn.addEventListener('click', () => {
-      current = (current + 1) % slides.length;
-      showSlide(current);
+
+    // Prevent event bubbling on button clicks
+    playPauseBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
     });
   }
 
