@@ -63,6 +63,12 @@ header {
   align-items: center;
   gap: 36px;
 }
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
 .nav-logo .logo-icon {
   font-weight: 700;
   font-size: 1.35rem;
@@ -74,6 +80,25 @@ header {
   height: 60px;
   width: auto;
   object-fit: contain;
+}
+
+.logo-separator {
+  width: 2px;
+  height: 45px;
+  background: linear-gradient(to bottom, #0594f8, #024089);
+  border-radius: 1px;
+}
+
+.ministry-logo-header {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0.9);
+  transition: filter 0.3s ease;
+}
+
+.ministry-logo-header:hover {
+  filter: brightness(1.1);
 }
 
 .footer-logo {
@@ -2073,6 +2098,12 @@ main {
   .logo-image {
     height: 40px;
   }
+  .logo-separator {
+    height: 35px;
+  }
+  .ministry-logo-header {
+    height: 38px;
+  }
   .hero {
     min-height: 90vh;
   }
@@ -2366,6 +2397,12 @@ main {
   }
   .logo-image {
     height: 35px;
+  }
+  .logo-separator {
+    height: 30px;
+  }
+  .ministry-logo-header {
+    height: 32px;
   }
   .hero {
     min-height: 80vh;
