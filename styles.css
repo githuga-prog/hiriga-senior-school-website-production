@@ -494,12 +494,17 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 10em;
+  max-height: 8em;
+  width: fit-content;
+  height: fit-content;
+  margin: 0 auto;
 }
 
 .quality-image img {
   width: 100%;
-  max-width: max-content;
-  height: max-content;
+  max-width: 10em;
+  max-height: 8em;
   object-fit: contain;
   border-radius: 25px;
   box-shadow: 
