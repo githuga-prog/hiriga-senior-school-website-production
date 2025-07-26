@@ -155,9 +155,9 @@ header {
 /* Welcome Text */
 .welcome-text {
   position: relative;
-  font-weight: 900;
+  font-family: 'Playwrite Polska', cursive;
+  font-weight: 400;
   font-size: 1.1rem;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
   background: linear-gradient(135deg, #0594f8 0%, #024089 100%);
   -webkit-background-clip: text;
